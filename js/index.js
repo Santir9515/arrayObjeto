@@ -47,36 +47,62 @@ profesoresCoder.push(profesor4)
 console.log(profesoresCoder);
 
 
+function nuevoProfesor(){
+    let nombreProfesor = prompt("Bienvenido profe, ingrese su nombre para iniciar")
+    let apellidoProfesor = prompt("Ingrese ahora su apellido")
+    let edadProfesor = parseInt(prompt("Ingrese su edad"))
+    let asignaturaProfesor = prompt("Ingrese la materia que dicta")
+    let profesorCreado = new Profesores (profesoresCoder.length+1,nombreProfesor, apellidoProfesor, edadProfesor, asignaturaProfesor)
+    profesoresCoder.push(profesorCreado)
+}
+nuevoProfesor()
 
-let nombreProfesor = prompt("Bienvenido profe. Ingrese su nombre")
-alert (`Bienvenido ${nombreProfesor}`)
-console.log(nombreProfesor);
-let numeroCredencial = parseInt(prompt(`${nombreProfesor} Ingrese su credencial`))
-console.log(numeroCredencial);
-
-let nombreAlumno = prompt(`Ingrese el nombre completo del alumno`)
-console.log(nombreAlumno);
-let nota1 = parseInt(prompt(`Ingrese la nota del primer parcial de ${nombreAlumno}`))
-console.log(nota1);
-let nota2 = parseInt(prompt(`Ingrese la nota del segundo parcial de ${nombreAlumno}`))
-console.log(nota2);
-let nota3 = parseInt(prompt(`Ingrese la nota del tercer parcial de ${nombreAlumno}`))
-console.log(nota3);
-function notaFinal() {
+function nuevoAlumno(){
+    let  alumnoIngresado = prompt("Ingrese nombre de alumno")
+    let apellidoIngresado = prompt("Ingrese apellido de alumno")
+    let generoAlumno = prompt("Ingrese genero de alumno")
+    let edadAlumno = parseInt(prompt("Ingrese edad alumno"))
+    let alumnoCreado = new Alumnos(alumnosCoder.length+1,alumnoIngresado,apellidoIngresado,generoAlumno,edadAlumno,)
+    alumnosCoder.push(alumnoCreado)
+    let nota1 = parseInt(prompt(`Ingrese la nota del primer parcial de ${alumnoIngresado}`))
+    console.log(nota1);
+    let nota2 = parseInt(prompt(`Ingrese la nota del segundo parcial de ${alumnoIngresado}`))
+    console.log(nota2);
+    let nota3 = parseInt(prompt(`Ingrese la nota del tercer parcial de ${alumnoIngresado}`))
+    console.log(nota3);
+    function notaFinal() {
     let resultado = nota1 + nota2 + nota3
     console.log(resultado);
     let promedio = resultado / 3
     console.log("el promedio del alumno es " + promedio);
 
     if (promedio >= 7){
-        alert(`El alumno ${nombreAlumno} promocionó la materia con un promedio de ${promedio} por lo que no tiene que rendir final`)
+        alert(`El alumno ${alumnoIngresado} promocionó la materia con un promedio de ${promedio} por lo que no tiene que rendir final`)
     } else if (promedio >= 4){
-        alert (`El alumno ${nombreAlumno} aprobó la materia pero debera rendir final ya que alcanzó un promedio de ${promedio}`)
+        alert (`El alumno ${alumnoIngresado} aprobó la materia pero debera rendir final ya que alcanzó un promedio de ${promedio}`)
     } else {
-        alert (`El alumno ${nombreAlumno} desaprobó la materia y deberá recursarla ya que alcanzó un promedio de ${promedio}`)
+        alert (`El alumno ${alumnoIngresado} desaprobó la materia y deberá recursarla ya que alcanzó un promedio de ${promedio}`)
     }
 }
 notaFinal()
+}
+nuevoAlumno()
 
+
+
+//Utilice Filter para averiguar todas los alumnos de Coder que son mujeres 
+let busqueda1 = alumnosCoder.filter((alumnos)=>alumnos.sexo == "Femenino")
+console.log(busqueda1);
+
+
+//Utilice every para verificar si todos los profesores de Coder son mayores a 25
+let busqueda2 = profesoresCoder.every((profesores)=>profesores.edad > 25)
+console.log(busqueda2);
+
+
+//Utilice sort para ordenar de menor a mayor a los profesores, segun su edad, y a los alumnos de mayor a menor
+console.log(profesoresCoder.sort((a,b)=> (a.edad - b.edad)));
+
+console.log(alumnosCoder.sort((a,b)=> (b.edad - a.edad)));
 
 
