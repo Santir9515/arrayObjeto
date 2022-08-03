@@ -64,11 +64,11 @@ function nuevoAlumno(){
     let edadAlumno = parseInt(prompt("Ingrese edad alumno"))
     let alumnoCreado = new Alumnos(alumnosCoder.length+1,alumnoIngresado,apellidoIngresado,generoAlumno,edadAlumno,)
     alumnosCoder.push(alumnoCreado)
-    let nota1 = parseInt(prompt(`Ingrese la nota del primer parcial de ${alumnoIngresado}`))
+    let nota1 = parseInt(prompt(`Ingrese la nota del primer parcial de ${alumnoIngresado} ${apellidoIngresado}`))
     console.log(nota1);
-    let nota2 = parseInt(prompt(`Ingrese la nota del segundo parcial de ${alumnoIngresado}`))
+    let nota2 = parseInt(prompt(`Ingrese la nota del segundo parcial de ${alumnoIngresado} ${apellidoIngresado}`))
     console.log(nota2);
-    let nota3 = parseInt(prompt(`Ingrese la nota del tercer parcial de ${alumnoIngresado}`))
+    let nota3 = parseInt(prompt(`Ingrese la nota del tercer parcial de ${alumnoIngresado} ${apellidoIngresado}`))
     console.log(nota3);
     function notaFinal() {
     let resultado = nota1 + nota2 + nota3
